@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>JavaScript Lang</title>
+
+  <style>
+
+  </style>
+</head>
+<body>
+  <h1>JavaScript Lang</h1>
+
+  <script type="-">
+
+    // Single Line comment
+
+    /* Multi-line comment
+    2nd line
+     */
+
+     /* jsDoc comments
+     *
+     *
+     */
+
+    // CPU
+    // IPO - REPL
+
+    // Out
+    // alert('Hello again!');
+    console.log(`This is log`);
+    console.info('This is info');
+    console.warn('This is warning');
+    console.error('This is an error');
+
+    // if () {
+    // }
+
+    // Input
+    // var userName = prompt('Enter your name');
+    // console.log('🚀 ~ userName', userName);
+
+    // DataType
+    console.log('🚀 ~ vStr1', vStr1);
+    var vStr1 = "This is a String";
+    console.log('🚀 ~ vStr1', vStr1);
+
+    var vStr2 = 'This is also a String';
+    console.log('🚀 ~ vStr2', vStr2);
+
+    var vStr3 = `This is also a super string ${1+1}`;
+    console.log('🚀 ~ vStr3', vStr3);
+
+    var vNum1 = 10;
+    var vNum2 = 10.02;
+    var vNum3 = Infinity;
+
+    var vBool1 = true;
+    var vBool2 = false;
+
+    var vUndef = undefined;
+    var vNull  = null;
+
+    var vArray = [ 'this is string', 10, -10, 20.02, true, false, undefined, null, [10, 20, true], {}, function(){} ];
+    console.log('🚀 ~ vArray', vArray);
+
+    var vObj = {
+      'myName' : 'JavaScript',
+      'alt name': 'ECMA Script',
+      age: 25,
+      isActive: true
+    };
+    console.log('🚀 ~ vObj', vObj);
+
+    console.log('🚀 ~~~~~~ doSomething', doSomething);
+    function doSomething() { console.log(`🚀 ~  inside doSomething `); }
+    // doSomething()
+
+
+    console.log(`🚀 ~  doSoemthingElse`, doSoemthingElse);
+    var doSoemthingElse = function () {
+      console.log(`🚀 ~  doing something else....`);
+    };
+
+
+
+    // Processing
+    // Assignment
+    // Processing
+    // Conditional
+    // Loop
+
+    // Structure
+
+  </script>
+
+  <script>
+    console.log(`🚀 ~  inside script block 2`);
+
+    console.log('🚀 ~ myName', myName);
+    var myName = 'JavaScript';
+
+    var age = 25;
+    console.log('🚀 ~ age', age);
+
+    const altName = 'ECMA Script';
+    console.log('🚀 ~ altName', altName);
+
+    // altName = 'TC39 ECMA Script';
+  </script>
+
+  <script>
+    let age = 35;
+    console.log('🚀 ~ age', age);
+  </script>
+
+
+
+</body>
+</html>

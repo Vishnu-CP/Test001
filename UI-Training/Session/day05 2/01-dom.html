@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="data:image/x-icon;base64,">
+  <title>DOM</title>
+
+  <style>
+    .page-header {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="pgTitle">DOM</h1>
+  <h2 id="sub-title">Document Object Model</h2>
+
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model" target="_blank" rel="noopener noreferrer">DOM - MDN</a>
+
+  <p id="summary">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+  </p>
+
+  <div>
+    <h2>Main Menu</h2>
+    <ul id="main-menu">
+      <li class="menu-item primary">Menu Item 01</li>
+      <li class="menu-item">Menu Item 02</li>
+      <li class="menu-item">Menu Item 03</li>
+      <li class="menu-item">Menu Item 04</li>
+      <li class="menu-item">Menu Item 05</li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Sub Menu</h2>
+    <ul id="sub-menu">
+      <li class="menu-item primary">Menu Item 01</li>
+      <li class="menu-item">Menu Item 02</li>
+      <li class="menu-item">Menu Item 03</li>
+      <li class="menu-item">Menu Item 04</li>
+      <li class="menu-item">Menu Item 05</li>
+    </ul>
+  </div>
+
+  <form>
+    <div>
+      <label for="fullName">Full Name</label>
+      <input type="text" name="fullName" id="fullName">
+    </div>
+
+    <hr/>
+
+    <button id="btnSave" type="button"
+      class="class1 class2" style="background-color: aqua;">Save</button>
+  </form>
+
+  <script type="-">
+    console.log(`🚀 ~  window`, window);
+    console.log(`🚀 ~  document`, window.document);
+    console.log(`🚀 ~  document`, document);
+  </script>
+
+  <script type="-">
+
+    var pgTitle = document.getElementById('pgTitle');
+    console.log(`🚀 ~  pgTitle`, pgTitle);
+
+    pgTitle.style.color           = 'red';
+    pgTitle.style.backgroundColor = 'black';
+    pgTitle.innerHTML             = 'DOM Updated by me!';
+    pgTitle.classList.add('page-header');
+    pgTitle.classList.add('active');
+
+    var subTitle = document.getElementById('sub-title');
+    console.log('🚀 ~ subTitle', subTitle);
+
+    // get multiple items say; .menu-item
+    // var menuItems = document.getElementsByClassName('menu-item');
+
+    var mainMenu = document.getElementById('main-menu');
+    var menuItems = mainMenu.getElementsByClassName('menu-item');
+    // console.log('🚀 ~ menuItems', menuItems);
+
+    var aMenuItems = Array.from(menuItems);
+    console.log('🚀 ~ aMenuItems', aMenuItems);
+
+    for(var menuItem of menuItems) {
+      console.log('🚀 ~ menuItem', menuItem);
+      menuItem.style.color = 'orange';
+    }
+    menuItems[0].style.color = 'red';
+
+  </script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script> -->
+  <script type="-">
+    // var pgTitle = document.getElementById('pgTitle');
+    // console.log('🚀 ~ pgTitle', pgTitle);
+
+    var $pgTitle = $('#pgTitle');
+    console.log('🚀 ~ $pgTitle', $pgTitle);
+    // $pgTitle.css('color', 'orange');
+
+    $pgTitle.css( {
+      color: 'green',
+      // backgroundColor: 'black'
+      'background-color': 'gray'
+    } );
+
+    $('#main-menu .menu-item').css('color', 'green');
+
+  </script>
+
+  <script>
+
+    var pgTitle1 = document.getElementById('pgTitle');
+    console.log('🚀 ~ pgTitle1', pgTitle1);
+    var pgTitle2 = document.querySelector('#pgTitle');
+    console.log('🚀 ~ pgTitle2', pgTitle2);
+
+    var menuItems0 = document.getElementsByClassName('menu-item');
+    console.log('🚀 ~ menuItems0', menuItems0);
+
+    var menuItems = document.querySelectorAll('.menu-item');
+    console.log('🚀 ~ menuItems', menuItems);
+
+  </script>
+
+</body>
+</html>

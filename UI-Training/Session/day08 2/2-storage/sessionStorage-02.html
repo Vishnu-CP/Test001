@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>sessionStorage - 02</title>
+</head>
+<body>
+  <h1>sessionStorage - 02</h1>
+
+  <input type="text" id="apiKey" value="">
+  <button id="btnStore">Store</button>
+  <button id="btnRemove">Remove</button>
+
+  <br />
+  <a href="sessionStorage-01.html">Back to Page-1</a>
+
+  <script>
+    // sessionStorage
+    // sessionStorage.getItem
+    // sessionStorage.setItem
+    // sessionStorage.removeItem
+
+    document.getElementById('apiKey').value = sessionStorage.getItem('apiKey');
+
+    document.getElementById('btnStore').addEventListener('click', () => {
+      sessionStorage.setItem('apiKey', document.getElementById('apiKey').value);
+    });
+
+    document.getElementById('btnRemove').addEventListener('click', () => {
+      sessionStorage.removeItem('apiKey');
+    });
+
+  </script>
+</body>
+</html>

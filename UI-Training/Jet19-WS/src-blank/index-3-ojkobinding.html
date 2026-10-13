@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>JET - Blank</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="viewport-fit=cover, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="css/images/JET-Favicon-Red-32x32.png">
+    <link rel="apple-touch-icon-precomposed" href="css/images/touchicon.png">
+    <meta name="apple-mobile-web-app-title" content="Oracle JET">
+
+		<!-- injector:theme -->
+		<!-- endinjector -->
+
+    <style>
+      body {
+        margin: 10px;
+        padding: 10px;
+      }
+      details {
+        margin-bottom: 20px;
+      }
+      details>summary:hover {
+        cursor: pointer;
+        font-weight: bold;
+      }
+      details[open]>summary {
+        font-weight: bold;
+      }
+
+      .fixed-bottom {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <h1>Basic data binding</h1>
+
+    <details >
+      <summary>text bind [ko]</summary>
+      <!-- <section>
+        First Name:<span data-bind="text:firstName"></span><br/>
+        Last Name:<span data-bind="text:lastName"></span><br/>
+        User name<span data-bind="text:userName"></span><br/>
+      </section> -->
+
+      <section>
+        First Name: <span data-bind="text:firstName">StaticText</span><br />
+        Last Name : <!--ko text:lastName -->StaticText<!--/ko--><br />
+        User name : <span data-bind="text:userName">StaticText</span><br />
+      </section>
+    </details>
+
+    <details open>
+      <summary>text bind [ko/oj]</summary>
+      <section>
+        First Name: <span data-bind="text:firstName">StaticText</span><br />
+        Last Name : <!--ko text:lastName -->StaticText<!--/ko--><br />
+        User name : <oj-bind-text value="[[userName]]">StaticText</oj-bind-text><br />
+
+        <hr />
+
+        <p><span data-bind="text:firstName">firstName</span> <span data-bind="text:lastName">lastName</span></p>
+        <p><oj-bind-text value="[[firstName]]"><oj-bind-text value="[[lastName]]"></p>
+
+        
+      </section>
+    </details>
+
+    <!-- oj-bind-if &oj-if -->
+      <details>
+        <summary>oj-bind-if vs oj-if</summary>
+        <div>
+          <oj-bind-if test="[[showDemoCode1]]">
+            <div>Testing oj-bind-if true</div>
+          </oj-bind-if>
+
+          <oj-if test="[[showDemoCode1]]">
+            <div>Testing oj-if true</div>
+          </oj-if>
+        </div>
+
+        <div>
+          <oj-bind-if test="[[showDemoCode2]]">
+            <div>Testing oj-bind-if true</div>
+          </oj-bind-if>
+          <oj-if test="[[showDemoCode2]]">
+            <div>Testing oj-if true</div>
+          </oj-if>
+        </div>
+      </details>
+
+      <footer class="oj-web-applayout-footer fixed-bottom " role="contentinfo">
+      <div class="oj-web-applayout-footer-item oj-web-applayout-max-width">
+        <ul>
+          <oj-bind-for-each data="[[footerLinks]]">
+            <template>
+              <li>
+                <a :id="[[$current.data.linkId]]" :href="[[$current.data.linkTarget]]">
+                  <oj-bind-text value="[[$current.data.name]]"></oj-bind-text>
+                </a>
+              </li>
+            </template>
+          </oj-bind-for-each>
+        </ul>
+      </div>
+      <div class="oj-web-applayout-footer-item oj-web-applayout-max-width oj-text-color-secondary oj-typography-body-sm">
+        Copyright &copy; 2014, 2026 Oracle and/or its affiliates All rights reserved.
+      </div>
+    </footer>
+
+    <!-- This injects script tags for the main javascript files -->
+		<!-- injector:scripts -->
+		<!-- endinjector -->
+  </body>
+</html>

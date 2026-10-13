@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>Knockout - Basics</title>
+</head>
+<body>
+  <h1>KO - 1W</h1>
+  <button onclick="loadProfileByKo()">load profile</button>
+
+  <div id="koView">
+    <h2>Profile View</h2>
+    <div>
+      <img data-bind="attr: {src:avatar}" alt="Profile Pic">
+      <div>
+        <h4>FirstName: <span data-bind="text:firstName"></span></h4>
+        <h4>Last Name: <span data-bind="text:lastName"></span></h4>
+        <h5>Email: <span data-bind="text:email"></span></h5>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script>
+  <script>
+    // as it's from API response
+    var profileData = {
+      firstName: 'Janet',
+      lastName: 'Weaver',
+      email: 'janet.weaver@reqres.in',
+      avatar: 'https://i.pravatar.cc/150?img=5'
+    };
+
+    var elTarget = document.getElementById('koView');
+    function loadProfileByKo () {
+      if (ko.dataFor(elTarget) != null || ko.contextFor(elTarget) != null) {
+        ko.cleanNode(elTarget);
+      }
+      ko.applyBindings(profileData, elTarget);
+    }
+
+    loadProfileByKo();
+  </script>
+
+</body>
+</html>

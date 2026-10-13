@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="data:image/x-icon;base64,">
+  <title>Events</title>
+
+  <style>
+    div {
+      margin: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+    #outer {
+      background-color: green;
+    }
+    #inner {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <h1>Js Events - Handle</h1>
+
+  <div id="outer" onclick="handleClickOuter()">
+    <div id="inner" onclick="handleClickInner()">
+      <button id="btn" onclick="handle1ClickBtn();handle2ClickBtn();">Click Me</button>
+      &nbsp; | &nbsp;
+      <a id="link" href="https://google.com" target="_blank"
+         rel="noopener noreferrer" onclick="handleClickLink()">Goto Google</a>
+    </div>
+  </div>
+
+  <script>
+    function handle1ClickBtn () {
+      // console.log(`🚀 ~  clicked btn`, window.event);
+      // console.log(`🚀 ~  clicked btn`, event);
+      console.log(`🚀 ~  clicked1 btn currentTarget`, event.currentTarget);
+      console.log(`🚀 ~  clicked1 btn target`, event.target);
+
+      // event.cancelBubble = true;
+      event.stopPropagation();
+    }
+
+    function handle2ClickBtn () {
+      // console.log(`🚀 ~  clicked btn`, window.event);
+      // console.log(`🚀 ~  clicked btn`, event);
+      console.log(`🚀 ~  clicked2 btn currentTarget`, event.currentTarget);
+      console.log(`🚀 ~  clicked2 btn target`, event.target);
+    }
+
+    // var btn = document.getElementById('btn');
+    // console.log('🚀 ~ btn', btn);
+    // btn.onclick = handle1ClickBtn;
+    // btn.onclick = handle2ClickBtn;
+
+    function handleClickInner () {
+      console.log(`🚀 ~  clicked Inner currentTarget`, event.currentTarget);
+      console.log(`🚀 ~  clicked Inner target`, event.target);
+      event.stopPropagation();
+    }
+    function handleClickOuter () {
+      console.log(`🚀 ~  clicked outer currentTarget`, event.currentTarget);
+      console.log(`🚀 ~  clicked outer target`, event.target);
+      event.stopPropagation();
+    }
+
+    function handleClickLink () {
+      console.log(`🚀 ~  clicked link currentTarget`, event.currentTarget);
+      console.log(`🚀 ~  clicked link target`, event.target);
+      // event.stopPropagation();
+      event.preventDefault();
+    }
+
+  </script>
+
+
+
+</body>
+</html>

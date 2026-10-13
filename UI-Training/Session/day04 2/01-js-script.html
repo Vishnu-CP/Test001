@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>js - script</title>
+</head>
+<body>
+  <h1>Js - Script</h1>
+
+  <script src="01-ex-script.js"></script>
+  <script>
+    console.log(`🚀 ~  inside script`);
+  </script>
+
+  <script>
+    // Processing
+
+    // Conditional
+
+    // falsy: false, 0, undefined, null
+    // truthy: anythying other than 0, false, undefined, null
+
+    var condition; // truthy/falsy
+    if (condition) {}
+    if (condition) {} else {}
+    if (condition) {} else if (condition) {}
+
+    var result = (condition)? (10) : (100);
+
+    // var expression;
+    // switch (expression) {
+    //   case value|condition:
+    //     //stmt1
+    //     //stmt2
+    //     break;
+    //   case value|condition:
+    //     //stmt1
+    //     //stmt2
+    //     break;
+    // }
+
+    var lang = '';
+    var state = 'KA'; /* KA, TN, AP, TG, KL, MH */
+
+    const langObj = {
+        "UP": "Hindi",
+        "KA": "Kannada"
+    };
+
+    function getState(state) {
+        const st = langObj[state];
+        return st ? st : "NOT_FOUND"
+    }
+
+    console.log('🚀 ~ lang', getState('KA'));
+
+    // var group = '' //
+    // 0-12 child
+    // 13 - 19 Teen
+    // >= 20: Adult
+
+    var group = ''
+    // var age = 25;
+    var age = Number(prompt('Enter Age'));
+    switch (true) {
+        case (age > -1 && age < 13):
+          group = 'child';
+          break;
+        case (age >= 13 && age <= 19):
+          group = 'Teen';
+          break;
+        default:
+          group = 'Adult';
+          break;
+    }
+    console.log(group);
+    // Loop
+  </script>
+
+
+</body>
+</html>

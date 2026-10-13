@@ -1,0 +1,58 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">avatar</th>
+    </tr>
+  </thead>
+  <tbody id="tbody" data-bind="foreach:users">
+    <tr>
+      <th scope="row" data-bind="text: $index() + 1"></th>
+      <td data-bind="text:firstName"></td>
+      <td data-bind="text:lastName"></td>
+      <td>
+        <img
+          data-bind="attr: {src:avatar}"
+          class="card-img-top"
+          alt="avatar pic"
+          width="50px"
+          height="50px"
+        />
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script> -->
+<script>
+  console.log(`🚀 ~  contacts.html loaded.`);
+  // https://api.restful-api.dev/objects
+
+  function ViewModel() {
+    this.users = ko.observableArray([]);
+  }
+
+  const vm = new ViewModel();
+  ko.applyBindings(vm);
+
+  getData();
+
+  async function getData() {
+    let contactsUrl = "https://elevatecore.in/api/users";
+    try {
+      var data = await fetch(contactsUrl).then((res) => res.json());
+      console.log(data);
+
+      var tbl = $("tbody");
+      console.log(tbl);
+      tbl.empty();
+
+      vm.users(data);
+
+      ko.applyBindings(vm.users(), document.getElementById("tbody"));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+</script>

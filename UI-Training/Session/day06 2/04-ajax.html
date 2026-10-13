@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>ajax</title>
+</head>
+<body>
+  <h1>Ajax</h1>
+
+  <button onclick="getDataXHR()">Get Data - XHR</button>
+  <button onclick="getDataJQuery()">Get Data - jQuery</button>
+  <button onclick="getDataUsingFetch()">Get Data - Fetch</button>
+
+  <button onclick="getDataUsingFetch2()">Get Data - FetchAwait</button>
+  <script>
+    var apiURL1 = 'https://jsonplaceholder.typicode.com/users/1';
+    var apiURL2 = 'https://elevatecore.in/api/users/1';
+
+    var apiURL  = apiURL2;
+
+    function getDataXHR () {
+      console.log(`🚀 ~  inside getDataXHR `);
+
+      var xhr = new XMLHttpRequest();
+      // xhr.responseType = 'json';
+      xhr.onload = function () {
+        console.log(`🚀 ~  xhr`, xhr);
+
+        console.log(`🚀 ~  apiResponse`, xhr.response);
+
+        // var apiRes = xhr.responseText;
+        // console.log('🚀 ~ apiRes', apiRes);
+
+        // var apiResData = JSON.parse(apiRes);
+        // console.log('🚀 ~ apiResData', apiResData);
+      };
+
+      xhr.open('GET', apiURL);
+      // xhr.open('GET', apiURL, false);
+
+      xhr.send();
+
+      console.log(`🚀 ~  request sent`);
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+  <script>
+
+    function getDataJQuery () {
+      console.log(`🚀 ~  inside getDataJQuery begins`);
+
+      // jQuery Basic Syntax
+      // $.ajax(apiURL, {
+      //   // method: 'GET',
+      //   // async: false,
+      //   success: onSuccess,
+      //   error: onError
+      // });
+
+      // promise(thenable) version
+      // $.ajax(apiURL)
+      //   .done(onSuccess)
+      //   .fail(onError);
+
+      $.ajax(apiURL)
+        .then(onSuccess, onError)
+        .always(onAlways)
+
+      console.log(`🚀 ~  inside getDataJQuery end`);
+    }
+
+    function onSuccess (...args) {
+      console.log(`🚀 ~  on Success args`, args);
+    }
+
+    function onError (...args) {
+      console.log(`🚀 ~  on Error args`, args);
+    }
+
+    function onAlways (...args) {
+      console.log(`🚀 ~  onAlways`, args);
+    }
+  </script>
+
+  <script>
+    function getDataUsingFetch () {
+      console.log(`🚀 ~  inside getDataUsingFetch begin`);
+
+      // fetch(apiURL)
+      //   .then(oRes => {
+      //     return oRes.json();
+      //   })
+      //   .then(onSuccess)
+      //   .catch(onError)
+      //   .finally(onAlways)
+
+      // $.ajax()
+      fetch(apiURL).then(r => r.json())
+        .then(onSuccess)
+        .catch(onError)
+        .finally(onAlways)
+
+      console.log(`🚀 ~  inside getDataUsingFetch end`);
+    }
+  </script>
+
+  <script>
+    function getDataUsingFetch2 () {
+
+      console.log(`🚀 ~  inside getDataUsingFetch2 begin`);
+
+      // getApiData();
+      getApiDataNew();
+
+      console.log(`🚀 ~  inside getDataUsingFetch2 end`);
+
+    }
+
+    function getApiData () {
+
+      console.log(`🚀 ~  inside getApiData begin `);
+
+      var apiData;
+
+      fetch(apiURL1).then(r=>r.json())
+        .then(data=>{
+          console.log('🚀 ~ data', data);
+          apiData = data;
+        })
+        .catch(function(){
+          console.log(`🚀 ~  something went wrong!`);
+        });
+
+      console.log(`🚀 ~  apiData`, apiData);
+
+      console.log(`🚀 ~  inside getApiData end `);
+    }
+
+
+    async function getApiDataNew () {
+
+      console.log(`🚀 ~  inside getApiData begin `);
+
+      try {
+        var apiData = await fetch(apiURL1).then(r=>r.json());
+        console.log(`🚀 ~  apiData`, apiData);
+
+        var apiData2 = await fetch(apiURL2).then(r=>r.json());
+        console.log('🚀 ~ apiData2', apiData2);
+
+      } catch (error) {
+
+        //handle api errors here.
+
+      }
+
+        // .then(data=>{
+        //   console.log('🚀 ~ data', data);
+        //   apiData = data;
+        // })
+        // .catch(function(){
+        //   console.log(`🚀 ~  something went wrong!`);
+        // });
+
+      console.log(`🚀 ~  inside getApiData end `);
+    }
+
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>AMD - require JS</title>
+</head>
+<body>
+  <h1>AMD - require JS</h1>
+
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@latest/require.min.js"></script>
+  <script type="-">
+    require(['./modules/sumLib', './modules/apiLib'], function(slib, api){
+      console.log('🚀 ~ slib', slib);
+      console.log('🚀 ~ api', api);
+
+      slib.sumAll();
+
+      api.post();
+    });
+  </script>
+
+  <script type="-">
+    require(['./modules/sumLib'], function(slib){
+      console.log('🚀 ~ inside require - slib', slib);
+    });
+  </script>
+
+  <script type="-">
+    require(['./modules/sumLib'], function(slib){
+      console.log('🚀 ~ inside require - slib', slib);
+    });
+  </script>
+
+  <script type="-">
+
+    require.config({
+      baseUrl: './modules'
+    });
+
+    require(['sumLib', 'apiLib'], function (sLib, api) {
+      console.log('🚀 ~ sLib', sLib);
+      console.log('🚀 ~ api', api);
+    });
+
+  </script>
+
+  <script type="">
+    require.config({
+      // baseUrl: './modules',
+
+      paths: { // Use standard paths (local/cdn) without the .js extension
+        'libs'    : './modules',
+        'jquery'  : 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min',
+        'knockout': 'https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min'
+      }
+    });
+
+    require(['libs/sumLib', 'libs/apiLib', 'jquery'], function (sLib, api, jQ) {
+      console.log('🚀 ~~~~~ jQ', jQ);
+      console.log('🚀 ~~~~~ sLib', sLib);
+      console.log('🚀 ~~~~~ api', api);
+    });
+  </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+.nav-item:has(>.nav-link.active) {
+  border-top: 1px solid red ;
+}
+.nav-link.active {
+  color:red !important;
+}

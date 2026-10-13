@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>Destructuring</title>
+</head>
+<body>
+  <h1>Destructuring</h1>
+
+  <script type="-">
+    // Array Destructuring
+
+    let dobStr = '2003-11-01';
+    let dobArr = dobStr.split('-');
+
+    // let dobY = dobArr[0];
+    // let dobM = dobArr[1];
+    // let dobD = dobArr[2];
+
+    let [dobY, dobM, dobD] = dobArr;
+    console.log('🚀 ~ dobY, dobM, dobD', dobY, dobM, dobD);
+
+    let names = ['Jonn', 'A', 'Smith'];
+    let [firstName, , lastName] = names;
+    console.log('🚀 ~ firstName', firstName);
+    console.log('🚀 ~ lastName', lastName);
+
+    let team = ['Coach Name', 'Captain Name', 'player1', 'player2', 'player3'];
+
+    // let coachName = team[0];
+    // let captName  = team[1];
+    // let players   = team.slice(2);
+    let [coachName, captName, ...players] = team;
+
+    let fruits1 = ['mango', 'apple', 'pineapple'];
+    let fruits2 = ['grape', 'orange'];
+
+    // let allFruits = fruits1.concat(fruits2);
+    let allFruits = [...fruits1, ...fruits2];
+    console.log('🚀 ~ allFruits', allFruits);
+
+    sumAll(10, 938, 844)
+
+    function sumAll (...args) {
+      // arguments
+    }
+
+  </script>
+
+  <script>
+    // Object Destructuring
+
+    let myObj = {
+      name: 'Unknown',
+      age: 10,
+      address: {
+        billing: {
+          address: 'billing address line',
+          city: 'billing city',
+          state: 'billing state',
+          zip: '111111'
+        },
+        shipping: {
+          address: 'shipping address line',
+          city: 'shipping city',
+          state: 'shipping state',
+          zip: '222222'
+        }
+      }
+    };
+
+    // let name = myObj.name;
+    // let {name, age} = myObj;
+    // console.log('🚀 ~ name, age', name, age);
+
+    // aliasing
+    let {name:memName, age:memAge} = myObj;
+    console.log('🚀 ~ memName', memName);
+    console.log('🚀 ~ memAge', memAge);
+
+    // billAddr
+    // shipAddr
+    // let { address : {billing : billAddr, shipping: shipAddr} } = myObj;
+    // console.log('🚀 ~ billAddr', billAddr);
+    // console.log('🚀 ~ shipAddr', shipAddr);
+
+    let shipAddr = myObj.address.shipping;
+
+  </script>
+
+</body>
+</html>

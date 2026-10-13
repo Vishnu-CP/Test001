@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>JET - Blank</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="viewport-fit=cover, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="css/images/JET-Favicon-Red-32x32.png">
+    <link rel="apple-touch-icon-precomposed" href="css/images/touchicon.png">
+    <meta name="apple-mobile-web-app-title" content="Oracle JET">
+
+		<!-- injector:theme -->
+		<!-- endinjector -->
+
+    <style>
+      body {
+        margin: 20px;
+        padding: 10px;
+        border: 1px solid salmon;
+      }
+      details {
+        margin-bottom: 20px;
+      }
+      details>summary:hover {
+        cursor: pointer;
+        font-weight: bold;
+      }
+      details[open]>summary {
+        font-weight: bold;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <h1>Non-Element Styling</h1>
+    <main>
+
+      <!--  Styling: BackgroundColor -->
+      <details open>
+        <summary>Styling: BackgroundColor</summary>
+        <section>
+          <div class="oj-bg-neutral-0">.oj-bg-neutral-0</div>
+          <div class="oj-bg-neutral-10">.oj-bg-neutral-10</div>
+          <div class="oj-bg-neutral-20">.oj-bg-neutral-20</div>
+          <div class="oj-bg-neutral-30">.oj-bg-neutral-30</div>
+          <div class="oj-bg-neutral-170 oj-color-invert">.oj-bg-neutral-170</div>
+          <div class="oj-bg-neutral-180 oj-color-invert">.oj-bg-neutral-180</div>
+          <div class="oj-bg-neutral-190 oj-color-invert">.oj-bg-neutral-190</div>
+          <div class="oj-bg-neutral-200 oj-color-invert">.oj-bg-neutral-200</div>
+          <div class="oj-bg-brand-10">.oj-bg-brand-10</div>
+          <div class="oj-bg-brand-20">.oj-bg-brand-20</div>
+          <div class="oj-bg-brand-30">.oj-bg-brand-30</div>
+          <div class="oj-bg-danger-10">.oj-bg-danger-10</div>
+          <div class="oj-bg-danger-20">.oj-bg-danger-20</div>
+          <div class="oj-bg-danger-30">.oj-bg-danger-30</div>
+          <div class="oj-bg-warning-10">.oj-bg-warning-10</div>
+          <div class="oj-bg-warning-20">.oj-bg-warning-20</div>
+          <div class="oj-bg-warning-30">.oj-bg-warning-30</div>
+          <div class="oj-bg-success-10">.oj-bg-success-10</div>
+          <div class="oj-bg-success-20">.oj-bg-success-20</div>
+          <div class="oj-bg-success-30">.oj-bg-success-30</div>
+          <div class="oj-bg-info-10">.oj-bg-info-10</div>
+          <div class="oj-bg-info-20">.oj-bg-info-20</div>
+          <div class="oj-bg-info-30">.oj-bg-info-30</div>
+        </section>
+      </details>
+
+      <!-- Badge -->
+      <details>
+        <summary>Badge</summary>
+        <section>
+          <div><span class="oj-badge">oj-badge</span></div>
+          <div><span class="oj-badge oj-badge-end">oj-badge oj-badge-end</span></div>
+          <div><span class="oj-badge oj-badge-danger">oj-badge oj-badge-danger</span></div>
+          <div><span class="oj-badge oj-badge-danger oj-badge-subtle">oj-badge oj-badge-danger oj-badge-subtle</span></div>
+          <div><span class="oj-badge oj-badge-sm">oj-badge oj-badge-sm</span></div>
+        </section>
+      </details>
+
+
+       <!-- Divider -->
+      <details>
+        <summary>Divider</summary>
+        <section>
+          <div class="oj-divider-margin oj-divider-top"><span>Top</span></div>
+          <div class="oj-divider-padding oj-divider-end"> End</div>
+            <p>top, start, end, bottom</p>
+
+          <div class="oj-divider-top"><span>.oj-divider-top</span></div>
+          <div class="oj-divider-start"><span>.oj-divider-start</span></div>
+          <div class="oj-divider-end oj-helper-text-align-right"><span>.oj-divider-end.oj-helper-text-align-right</span></div>
+          <div class="oj-divider-bottom"><span>.oj-divider-bottom</span></div>
+
+          <div class="oj-divider-margin oj-divider-top"><span>.oj-divider-margin.oj-divider-top</span></div>
+          <div class="oj-divider-padding oj-divider-end oj-helper-text-align-right"><span>.oj-divider-padding.oj-divider-end.oj-helper-text-align-right</span></div>
+
+        </section>
+      </details>
+
+       <!-- Header -->
+      <details>
+        <summary>Header</summary>
+        <section>
+          <h2 class="oj-header-border">Heading with a Border h2</h2>
+          <h1 class="oj-header-border">Heading with a Border h1</h1>
+          <h6 class="oj-header-border">Heading with a Border h6</h6>
+        </section>
+      </details>
+
+      <!-- Labels -->
+      <details>
+        <summary>Labels</summary>
+        <section>
+          <div></div>
+        </section>
+      </details>
+
+      <!-- Link -->
+      <details>
+        <summary>Link</summary>
+        <section>
+          <div></div>
+        </section>
+      </details>
+
+
+      <!-- Text -->
+      <details>
+        <summary>Text</summary>
+        <section>
+          <div class="oj-line-clamp-2">This could be some very long text that requires line clamping</div>
+          <div class="heading-2xl">This could be some very long text that requires line clamping heading-2xl</div>
+          <div class="body-xl">This could be some very long text that requires line clamping body-xl</div>
+        </section>
+      </details>
+
+      <!-- FlexBar -->
+      <details>
+        <summary>FlexBar</summary>
+        <section>
+          <div class="oj-flex-bar">
+            <div class="oj-flex-bar-start">
+              <div>start</div>
+            </div>
+            <div class="oj-flex-bar-middle">
+              <div>middle</div>
+            </div>
+            <div class="oj-flex-bar-end">
+              <div>end</div>
+            </div>
+          </div>
+        </section>
+      </details>
+
+      
+
+    </main>
+
+
+
+
+    <!-- This injects script tags for the main javascript files -->
+		<!-- injector:scripts -->
+		<!-- endinjector -->
+  </body>
+</html>

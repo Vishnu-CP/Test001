@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="data:image/x-icon;base64,">
+  <title>Events</title>
+
+  <style>
+    div {
+      margin: 20px;
+      padding: 20px;
+      text-align: center;
+    }
+    #outer {
+      background-color: green;
+    }
+    #inner {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <h1>Js Events - Listener</h1>
+
+  <div id="outer">
+    <div id="inner" >
+      <button id="btn">Click Me</button>
+      &nbsp; | &nbsp;
+      <a id="link" href="https://google.com" target="_blank"
+         rel="noopener noreferrer">Goto Google</a>
+    </div>
+  </div>
+
+  <script>
+    function handle1ClickBtn (event) {
+      // console.log(`🚀 ~  clicked btn`, window.event);
+      // console.log(`🚀 ~  clicked btn`, event);
+      console.log(`🚀 ~  clicked1 btn currentTarget`, event.currentTarget);
+      console.log(`🚀 ~  clicked1 btn target`, event.target);
+
+      // event.cancelBubble = true;
+      // event.stopPropagation();
+      event.stopImmediatePropagation();
+    }
+
+    function handle2ClickBtn (event) {
+      // console.log(`🚀 ~  clicked btn`, window.event);
+      // console.log(`🚀 ~  clicked btn`, event);
+      console.log(`🚀 ~  clicked2 btn currentTarget`, event.currentTarget);
+      console.log(`🚀 ~  clicked2 btn target`, event.target);
+    }
+
+    // var btn = document.getElementById('btn');
+    // console.log('🚀 ~ btn', btn);
+    // btn.onclick = handle1ClickBtn;
+    // btn.onclick = handle2ClickBtn;
+
+    function handleClickInner (event) {
+      console.log(`🚀 ~  clicked Inner currentTarget`, event.currentTarget);
+      console.log(`🚀 ~  clicked Inner target`, event.target);
+      // event.stopPropagation();
+    }
+    function handleClickOuter (event) {
+      console.log(`🚀 ~  clicked outer currentTarget`, event.currentTarget);
+      console.log(`🚀 ~  clicked outer target`, event.target);
+      // event.stopPropagation();
+    }
+
+    function handleClickLink (event) {
+      console.log(`🚀 ~  clicked link currentTarget`, event.currentTarget);
+      console.log(`🚀 ~  clicked link target`, event.target);
+      // event.stopPropagation();
+      // event.preventDefault();
+    }
+
+    var btn   = document.getElementById('btn');
+    var inner = document.getElementById('inner');
+    var outer = document.getElementById('outer');
+    var link  = document.getElementById('link');
+
+    // btn.onclick = handle1ClickBtn;
+    btn.addEventListener('click', handle1ClickBtn, true);
+    btn.addEventListener('click', handle2ClickBtn, true);
+
+    inner.addEventListener('click', handleClickInner, true);
+    outer.addEventListener('click', handleClickOuter, true);
+    link.addEventListener('click', handleClickLink, true);
+  </script>
+
+</body>
+</html>

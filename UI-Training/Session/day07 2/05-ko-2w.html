@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>KO - 2W</title>
+</head>
+<body>
+  <h1>KO - 2W - Observable</h1>
+
+  <button onclick="loadProfileByKo('koView')">load profile</button>
+  <hr />
+
+  <div id="koView">
+    <h2>Profile View</h2>
+    <div>
+      <img data-bind="attr: {src:avatar}" alt="avatar">
+      <div>
+        <h4>FirstName: <span data-bind="text:firstName"></span></h4>
+        <h4>Last Name: <span data-bind="text:lastName"></span></h4>
+        <h5>Email: <span data-bind="text:email"></span></h5>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div id="koEdit">
+    <h2>Profile Edit</h2>
+    <div> <!-- [[ 1W... ]] {{ 2W... }} -->
+      <p>First Name: <input data-bind="value:firstName, valueUpdate:['input','afterkeyup']"/></p>
+      <p>Last Name: <input data-bind="value:lastName, valueUpdate:['input','afterkeyup']"/></p>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script>
+
+  <script>
+    // as it's from API response
+    var profileData0 = {
+      firstName: 'Janet',
+      lastName : 'Weaver',
+      email    : 'janet.weaver@reqres.in',
+      avatar   : 'https://i.pravatar.cc/150?img=5'
+    };
+
+    var profileData1 = {
+      firstName : ko.observable('Janet'),
+      lastName  : ko.observable('Weaver'),
+      email     : ko.observable('janet.weaver@xyz.in'),
+      avatar    : ko.observable('https://i.pravatar.cc/150?img=5')
+    };
+
+    var profileData = {
+      firstName: ko.observable('Janet'),
+      lastName: ko.observable('Weaver'),
+      avatar: ko.observable('https://i.pravatar.cc/150?img=5')
+    };
+    profileData.email = ko.pureComputed( function(){
+      return `${this.firstName()}.${this.lastName()}@oracle.com`;
+    }, profileData );
+
+    function loadProfileByKo ( target ) {
+      var elTarget = document.getElementById(target);
+      if (ko.dataFor(elTarget) != null || ko.contextFor(elTarget) != null) {
+        ko.cleanNode(elTarget);
+      }
+      ko.applyBindings(profileData, elTarget);
+    }
+
+    loadProfileByKo('koView');
+    loadProfileByKo('koEdit');
+  </script>
+
+</body>
+</html>

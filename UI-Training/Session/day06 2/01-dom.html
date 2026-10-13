@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>DoOM</title>
+
+  <style>
+    .menu-item {
+      color: green;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+  <script src="00-script.js"></script>
+
+</head>
+<body>
+  <h1 id="pgTitle">DOM</h1>
+
+  <button onclick="addMenuItem()">Add Menu</button>
+
+  <ul id="mainMenu">
+    <li class="menu-item">Menu Item 1</li>
+    <li class="menu-item">Menu Item 2</li>
+    <li class="menu-item">Menu Item 3</li>
+    <li class="menu-item">Menu Item 4</li>
+    <li class="menu-item">Menu Item 5</li>
+  </ul>
+
+  <hr />
+
+  <p id="comment"></p>
+
+  <script>
+    var elMainMenu  = document.getElementById('mainMenu');
+    var elMenuItems = elMainMenu.getElementsByClassName('menu-item');
+
+    function addMenuItem () {
+      var newLi = document.createElement('li');
+      // var elMenuItems = elMainMenu.querySelectorAll('.menu-item');
+      newLi.textContent = 'Menu Item ' + (elMenuItems.length+1);
+      newLi.classList.add('menu-item');
+      elMainMenu.append(newLi);
+    }
+  </script>
+
+  <script type="-">
+    function addMenuItem () {
+      var newLi = document.createElement('li');
+      newLi.textContent = 'New Menu Item';
+      var menu = document.getElementById('mainMenu');
+      menu.appendChild(newLi);
+    }
+  </script>
+
+  <script type="-">
+    let menu_item_count = 5
+    function addMenuItem() {
+        var mainMenu = document.getElementById("mainMenu")
+        mainMenu.innerHTML += `<li class="menu-item">Munu item ${menu_item_count+1}</li>`
+        menu_item_count++;
+    }
+  </script>
+
+  <script type="-">
+    function addMenuItem () {
+      const menuitem = document.createElement("li");
+      menuitem.innerText = "Menu Item 6";
+      menuitem.className = "menu-item";
+      document.getElementById('mainMenu').appendChild(menuitem);
+    }
+  </script>
+
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script> -->
+  <script>
+    var elComment = document.getElementById('comment');
+    elComment.innerHTML = '<h2>Post X</h2> <i>Some text</i>';
+  </script>
+
+
+  <script type="-">
+    var elPgTitle = document.getElementById('pgTitle');
+    elPgTitle.style.color = 'red';
+  </script>
+
+
+</body>
+</html>

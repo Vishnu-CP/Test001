@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>JET - Blank</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="viewport-fit=cover, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="css/images/JET-Favicon-Red-32x32.png">
+    <link rel="apple-touch-icon-precomposed" href="css/images/touchicon.png">
+    <meta name="apple-mobile-web-app-title" content="Oracle JET">
+
+		<!-- injector:theme -->
+		<!-- endinjector -->
+
+    <style>
+      body {
+        margin: 10px;
+        padding: 10px;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <span>ko data-bind:html</span>
+    <h2 data-bind="html:pageTitle">StaticTitle</h2>
+
+    <span>oj-bind-text</span>
+    <h2><oj-bind-text value="[[ pageTitle ]]">StaticTitle</oj-bind-text></h2>
+
+    <span>oj-bind-dom</span>
+    <h2><oj-bind-dom config="[[ domConfig ]]"></oj-bind-dom></h2>
+
+    <span>jet-cc</span>
+    <h2><my-bind-html value="[[ pageTitle ]]"></my-bind-html></h2>
+
+    <!-- This injects script tags for the main javascript files -->
+		<!-- injector:scripts -->
+		<!-- endinjector -->
+  </body>
+</html>

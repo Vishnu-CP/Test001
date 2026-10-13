@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>Objects</title>
+</head>
+<body>
+  <h1>Objects</h1>
+
+  <script type="-">
+
+    var carA = {
+      name: 'BMW',
+      color: 'black',
+      type: 'Electric-1000',
+
+      battery: 'AH-1000',
+      toolKit: ['spanner-10', 'screwdriver', 'full-jack-kit'],
+
+      run: function (speed) { /* 100 lines of code */ },
+      charge: function () { /* 100 linse of code */}
+    }
+    console.log('🚀 ~ carA', carA);
+
+    var carB = {
+      name: 'BMW',
+      color: 'red',
+      type: 'Electric-1500',
+      battery: 'AH-1500',
+      toolKit: ['spanner-10', 'screwdriver', 'full-jack-kit'],
+
+      run: function (speed) { /* 100 lines of code */ },
+      charge: function () { /* 100 linse of code */}
+    }
+
+
+    function constructCar (name, color, capacity) {
+
+      function run (speed) {
+        /* 100 lines of code */
+      }
+
+      function charge () {
+        /* 100 lines of code */
+      }
+
+      var newCar = {
+        name,
+        color,
+        type: capacity === 1000? 'Electric-1000' : 'Electric-1500',
+        battery: capacity === 1000? 'AH-1000' : 'AH-1500',
+        run,
+        charge
+      };
+
+      return newCar
+    }
+
+    var newCar1 = constructCar('BMW', 'Green', 1000);
+    console.log('🚀 ~ newCar1', newCar1);
+    var newCar2 = constructCar('BMW', 'Yello', 1000);
+    console.log('🚀 ~ newCar2', newCar2);
+
+
+    function service () {
+      console.log(`🚀 ~  ${this.color} ${this.name} is under service`);
+    }
+
+    function Car (name, color, capacity) {
+      // this = {}
+
+      function _internal(){
+
+      }
+
+      function run (speed) {
+        /* 100 lines of code */
+        _internal();
+        console.log(`🚀 ~  ${this.color} ${this.name} running at speed ${speed}`);
+      }
+
+      function charge () {
+        /* 100 lines of code */
+        _internal();
+        console.log(`🚀 ~  ${this.color} ${this.name} is charging.`);
+      }
+
+      this.name    = name;
+      this.color   = color;
+      this.type    =  capacity === 1000? 'Electric-1000' : 'Electric-1500';
+      this.battery =  capacity === 1000? 'AH-1000' : 'AH-1500';
+      this.run     = run;
+      this.charge  = charge;
+      // this.service = service;
+    }
+    Car.prototype.service = service;
+
+    Car.doSomething = function () {
+      console.log(`🚀 ~  doing something`);
+    }
+
+    var carX1 = new Car('Audi', 'gray', 1000);
+    console.log('🚀 ~ carX1', carX1);
+    var carX2 = new Car('Audi', 'blue', 1500);
+    console.log('🚀 ~ carX2', carX2);
+
+  </script>
+
+  <script type="-">
+    function _run (speed) {
+      /* 100 lines of code */
+      console.log(`🚀 ~  ${this.color} ${this.name} running at speed ${speed}`);
+    };
+    class Car {
+      constructor (name, color, capacity) {
+        this.name    = name;
+        this.color   = color;
+        this.type    =  capacity === 1000? 'Electric-1000' : 'Electric-1500';
+        this.battery =  capacity === 1000? 'AH-1000' : 'AH-1500';
+        this.run     = _run;
+        this.charge = function () {
+                        /* 100 lines of code */
+                        console.log(`🚀 ~  ${this.color} ${this.name} is charging.`);
+                      }
+      }
+
+      service () {
+        console.log(`🚀 ~  ${this.color} ${this.name} is under service`);
+      }
+    }
+    // Car.prototype.service = service;
+
+    var carX1 = new Car('Audi', 'gray', 1000);
+    console.log('🚀 ~ carX1', carX1);
+    var carX2 = new Car('Audi', 'blue', 1500);
+    console.log('🚀 ~ carX2', carX2);
+
+  </script>
+
+  <script>
+    // context switching
+    // Object.defineProperty()
+
+    var bmw = {
+      name: 'BMW',
+      color: 'black',
+      run: function (speed) {
+        console.log(`🚀 ~  ${this.name} is running at speed ${speed}`);
+      }
+    };
+    console.log('🚀 ~ bmw', bmw);
+
+    var audi = {
+      name: 'Audi',
+      color: 'rend',
+      fly: function (speed, alt) {
+        console.log(`🚀 ~  ${this.name} is flying at speed ${speed} and altitue ${alt}`);
+      }
+    };
+    console.log('🚀 ~ audi', audi);
+
+    // bmw.fly = audi.fly;
+    // audi.run = bmw.run;
+
+    // bmw.run.call(audi, 100);
+    // audi.fly.apply(bmw, [100, 1000]);
+
+    //document.querySelector()
+
+    // var _$ = document.querySelector;
+    var _$  = document.querySelector.bind(document);
+    var _$$ = (selector) =>  Array.from(document.querySelectorAll(selector));
+
+    var runAudi = bmw.run.bind(audi);
+    runAudi(100);
+
+    var flyBmw = audi.fly.bind(bmw);
+    flyBmw(100, 1000);
+
+    var flyBmw200 = audi.fly.bind(bmw, 200);
+    flyBmw200(2000);
+
+  </script>
+</body>
+</html>

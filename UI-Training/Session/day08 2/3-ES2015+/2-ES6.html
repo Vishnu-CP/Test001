@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>ES6 = ES2015</title>
+</head>
+<body>
+  <script>
+    // default
+    function add (a=0, b=0) {
+
+      // if (typeof a == 'undefined') { a = 0; }
+      // if (typeof b == 'undefined') { b = 0; }
+
+      // (typeof a == 'undefined' && (a = 0));
+      // (typeof b == 'undefined' && (b = 0));
+
+      // a = a || 0;
+      // b = b || 0;
+
+      // a = a ?? 0;
+      // b = b ?? 0;
+
+      return a + b;
+    }
+
+    let myObj = {
+      name: 'Unknown',
+      age: 10,
+      address: {
+        billing: {
+          address: 'billing address line',
+          city: 'billing city',
+          state: 'billing state',
+          zip: '111111'
+        },
+        // shipping: {
+        //   address: 'shipping address line',
+        //   city: 'shipping city',
+        //   state: 'shipping state',
+        //   zip: '222222'
+        // }
+      }
+    };
+
+    let zipShip = myObj.address?.shipping?.zip;
+    console.log('🚀 ~ zipShip', zipShip);
+    // if (myObj.address.shipping) {
+    //   zipShip = myObj.address.shipping.zip;
+    // }
+
+
+
+  </script>
+</body>
+</html>

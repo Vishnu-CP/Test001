@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vishnu-Assignment</title>
+</head>
+<body>
+
+    <h2 style="font-style: italic; color: white; background-color: blueviolet; ;">Sum Of Numbers </h2>
+
+   <script>
+    // without js arrays methods
+     function sumAll(){
+            var sum =0;
+            for(key in arguments){
+
+                if(typeof arguments[key] == 'number'  && !isNaN(arguments[key]) ){
+                    sum += arguments[key]
+                    // console.log(true);
+                }
+            }
+            return sum;
+        }
+
+        function sumOdd(){
+            var sum =0;
+            for(key in arguments){
+
+                if(typeof arguments[key] == 'number'  && !isNaN(arguments[key]) && arguments[key] % 2 !=0){
+                    sum += arguments[key]
+                    // console.log(true);
+                }
+            }
+            return sum;
+        }
+         function sumEvn(){
+            var sum =0;
+            for(key in arguments){
+
+                if(typeof arguments[key] == 'number'  && !isNaN(arguments[key]) && arguments[key] % 2 ==0){
+                    sum += arguments[key]
+                    // console.log(true);
+                }
+            }
+            return sum;
+        }
+
+
+        // Uisng JS Array Methods
+
+        function sumAll_2(... args){
+           
+           return  args.filter(item => {return typeof item =="number" &&  !isNaN(item)} )
+                    .reduce((tot,item) =>  tot+item,0);
+            
+        }
+
+        function sumOdd_2(... args){
+           
+           return  args.filter(item => {return typeof item =="number" &&  !isNaN(item) && item %2 !=0} )
+                    .reduce((tot,item) =>  tot+item);
+            
+        }
+
+        function sumEvn_2(... args){
+           
+           return  args.filter(item => {return typeof item =="number" &&  !isNaN(item) && item %2 ==0} )
+                    .reduce((tot,item) =>  tot+item);
+            
+        }
+
+        // TEST
+
+        console.log('ALL',sumAll(10,'a',undefined,NaN,null,{},[],30,40,1,2));
+        console.log('ODD',sumOdd(10,'a',undefined,NaN,null,{},[],30,40,1,2));
+        console.log('EVN',sumEvn(10,'a',undefined,NaN,null,{},[],30,40,1,2));
+
+        console.log('ALL_2',sumAll_2(10,'a',undefined,NaN,null,{},[],30,40,1,2));
+        console.log('ODD_2',sumOdd_2(10,'a',undefined,NaN,null,{},[],30,40,1,2));
+        console.log('EVN_2',sumEvn_2(10,'a',undefined,NaN,null,{},[],30,40,1,2));
+
+
+
+
+   </script> 
+    
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>JET - Blank</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="viewport-fit=cover, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="css/images/JET-Favicon-Red-32x32.png">
+    <link rel="apple-touch-icon-precomposed" href="css/images/touchicon.png">
+    <meta name="apple-mobile-web-app-title" content="Oracle JET">
+
+		<!-- injector:theme -->
+		<!-- endinjector -->
+
+    <style>
+      body {
+        margin: 10px;
+        padding: 10px;
+      }
+      details {
+        margin-bottom: 20px;
+      }
+      details>summary:hover {
+        cursor: pointer;
+        font-weight: bold;
+      }
+      details[open]>summary {
+        font-weight: bold;
+      }
+
+      .fixed-bottom {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <h1>Event Binding</h1>
+
+     <em>
+      <oj-bind-text value="[[ time ]]"></oj-bind-text>
+    </em>
+    <hr />
+     <!-- KO Event Binding -->
+    <button data-bind="click:startTimer, disable:clockState" >Start</button>
+
+    <!-- OJ EVent Binding -->
+    <button on-click="[[stopTimer]]" :disabled="[[ !clockState() ]]">Stop</button>
+
+
+     <hr />
+    <oj-button class="oj-button-lg" on-oj-action="[[startTimer]]" :disabled="[[ clockState() ]]" chroming="callToAction">Start</oj-button>
+    <oj-button class="oj-button-sm" on-oj-action="[[stopTimer]]" :disabled="[[ !clockState() ]]" chroming="danger">Stop</oj-button>
+
+
+
+    <!-- This injects script tags for the main javascript files -->
+		<!-- injector:scripts -->
+		<!-- endinjector -->
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<div class="form-container" style="width:25vw;">
+  <div class="popup-header">
+    <h1 class="oj-typography-heading-xs">
+      <oj-bind-text value="Edit customer"></oj-bind-text>
+    </h1>
+  </div>
+
+  <div class="popup-body">
+    <oj-form-layout id="cust-information" class="oj-sm-margin-5x-top">
+      <oj-input-text id="firstName" label-hint="First Name" required="true" value="{{cust.firstName}}"></oj-input-text>
+      <oj-input-text id="lastName" label-hint="Last Name" required="true" value="{{cust.lastName}}"></oj-input-text>
+      <oj-input-text id="email" label-hint="Email" required="true" value="{{cust.email}}" readonly></oj-input-text>
+    </oj-form-layout>
+  </div>
+
+
+  <div class="popup-footer fixed-bottom">
+    <oj-button id="okButton" on-oj-action="[[saveHandler]]" chroming="callToAction">Update</oj-button>
+    <oj-button id="cancelButton" on-oj-action="[[cancelHandler]]">Cancel</oj-button>
+  </div>
+</div>

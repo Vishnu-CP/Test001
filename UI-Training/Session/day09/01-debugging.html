@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>Debugging</title>
+</head>
+<body>
+  <h1 id="pgTitle">Debugging</h1>
+
+  <button id="btn">Change Title</button>
+
+  <script>
+
+    // debugger;
+
+    document.addEventListener('click', e=>{
+      console.log(`🚀 ~  e.target`, e.target);
+    });
+
+    document.getElementById('pgTitle').addEventListener('click', e=>{
+      e.stopPropagation();
+      console.log(`🚀 ~ title clicked.`);
+    });
+
+    document.getElementById('btn').addEventListener('click', e=>{
+      e.stopPropagation();
+      document.getElementById('pgTitle').textContent = 'Debugging - ' + Date.now();
+    });
+
+    console.log(`🚀 ~ begin script - 1`);
+
+    var aMyStr1;
+
+    let idx = 10;
+
+    var aMyStr2 = 'JavaScript';
+
+    let sum;
+
+    console.log(`🚀 ~ doing something here.`);
+
+    var fx2 = function () {
+      var vFx2;
+      console.log(`🚀 ~ inside fx2`);
+    }
+
+    function fx1 () {
+
+      var vFx1 = 10;
+      console.log(`🚀 ~ inside fix1`);
+
+      fx2();
+    }
+
+    console.log(`🚀 ~ doing something here.`);
+
+    fx1();
+
+
+    console.log(`🚀 ~ end script - 1`);
+  </script>
+
+  <script>
+    console.log(`🚀 ~ begin script - 2`);
+
+    console.log(`🚀 ~ end script - 2`);
+  </script>
+
+
+</body>
+</html>

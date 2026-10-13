@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>Data Types</title>
+</head>
+<body>
+  <h1>Data Types</h1>
+
+  <script type="-">
+    // Array
+
+    // var myName1 = 'JavaScript';
+    // var myName2 = 'JavaScript X';
+
+    var vArr1 = [10, 20, 30];
+    console.log('🚀 ~ vArr1', vArr1);
+
+    console.log('🚀 ~ vArr1[1]', vArr1[1]);
+
+    // vArr1[2] = '200';
+    // vArr1[3] = '300';
+    // vArr1[4] = '400';
+    // vArr1[5] = '500';
+    // vArr1[6] = '600';
+
+    vArr1['codeName'] = 'ECMA Script';
+    console.log('🚀 ~ vArr1', vArr1);
+
+    console.log(`🚀 ~  ---------------------------------`);
+
+    for(var idx=0; idx< vArr1.length; idx++) {
+      console.log(`🚀 ~ `, idx, vArr1[idx]);
+    }
+    console.log(`🚀 ~  ---------------------------------`);
+
+    for(var key in vArr1) {
+      console.log(`🚀 ~  `, key, vArr1[key]);
+    }
+
+    console.log(`🚀 ~  ---------------------------------`);
+    for(var item of vArr1) {
+      console.log(`🚀 ~  `, item);
+    }
+
+    // var vArr2 = [10, 20, 30];
+    // console.log('🚀 ~ vArr2', vArr2);
+
+  </script>
+
+  <script type="-">
+    // Plain Object
+
+    var vObj = {
+      'myName' : 'JavaScript',
+      age: 30,
+      'alt name': 'ECMA Script'
+    };
+    console.log('🚀 ~ vObj', vObj);
+    console.log('🚀 ~ altName', vObj['alt name']);
+
+    vObj['0'] = 'Testing number key'
+
+    vObj.isActive = true;
+    console.log('🚀 ~ vObj', vObj);
+
+    for(var key in vObj) {
+      console.log(`🚀 ~  `, key, vObj[key]);
+    }
+
+    var name = 'Javascript';
+    var age = 30;
+    var isActive = true;
+
+    var nObj1 = {
+      'name': name,
+      'age': age,
+      'isActive': isActive
+    };
+    console.log('🚀 ~ nObj1', nObj1);
+
+    var nObj2 = {
+      name: name,
+      age: age,
+      isActive: isActive
+    };
+    console.log('🚀 ~ nObj2', nObj2);
+
+    var nObj3 = {
+      name,
+      age,
+      isActive
+    };
+    console.log('🚀 ~ nObj3', nObj3);
+
+    var vTestArr = [10, 20, 30, nObj3];
+
+    vTestArr['xyz'] = 'Abc';
+
+    console.log('🚀 ~ vTestArr', vTestArr);
+
+    let laptop = {
+      brand: 'Apple',
+      model: 'MacBook Pro',
+      year: 2023,
+      processor: 'M2',
+      mfgDetails: {
+        country: 'China',
+        mfgOn: '2022-11'
+      }
+    };
+    console.log('🚀 ~ laptop', laptop);
+  </script>
+
+  <script type="-">
+    // Function
+
+    function doSomething (a, b, c) {
+      console.log('🚀 ~ a, b, c', a, b, c);
+      console.log(`🚀 ~  inside doSomething`, arguments);
+    }
+
+    function doSomething (a, b, c, d) {
+      console.log('🚀 ~ a, b, c', a, b, c);
+      console.log(`🚀 ~  inside doSomething`, arguments);
+
+      return a+ b + c + d;
+    }
+
+    var fnRes = doSomething(10, 20, 30, 40, 50, 60);
+    console.log('🚀 ~ fnRes', fnRes);
+  </script>
+  <script type="-">
+
+    // a03-fun-yourname.zip
+    // a03-fun-yourname+aiagent.zip
+
+    sumAll(); //0
+    sumAll(10,20,31,51,100); //222
+    sumAll(true, '', false, [], null, 10, 20); //30
+
+    sumOdd(); //0
+    sumOdd(11,20,30,21); // 32
+    sumOdd(11,null,20,true, 30, '', 21); // 32
+
+    sumEvn(); //0
+    sumEvn(11,20,30,21); // 50
+    sumEvn(11,null,20,true, 30, '', 21); // 50
+
+  </script>
+
+  <script type="-">
+    function doSomething (a, b) {
+      console.log(`🚀 ~  inside doSomething`);
+      return a+b;
+    }
+
+    var doSomethingElse = function _doSomethingElse () {
+      console.log(`🚀 ~  inside doSomethingElse`);
+
+      return arguments[0]*arguments[1];
+    }
+
+    var fRes = doSomethingElse(10,20);
+    console.log('🚀 ~ fRes', fRes);
+
+  </script>
+
+  <script type="-">
+    // arrow functions
+
+    var doSomething0 = function(a,b){
+      return a+b;
+    };
+
+    var doSomething1 = (a,b) => {
+      return a+b;
+    };
+
+    var doSomething2 = (a,b) => a+b;
+
+    var doSomething3 = a => a*a;
+
+    var doSomething4 = () => 100;
+
+  </script>
+
+  <script>
+
+    var myName = 'Javascript';
+
+    // Refer MDN here after
+
+    // String
+    // Array
+    // Object
+
+
+  </script>
+
+  <script>
+    // IIFE - Immeidately Invoked Function Expression
+
+    (function(a){
+      console.log(`🚀 ~  inside IIFE`, a);
+      console.log(`🚀 ~  arguments`, arguments);
+    })(10);
+
+
+    ((a)=>{
+      console.log(`🚀 ~  inside arrow IIFE`, a);
+      // console.log(`🚀 ~  arguments`, arguments);
+    })(100);
+
+    ( function(a){
+      console.log(`🚀 ~  inside alternate syntax of IIFE`, a);
+      console.log(`🚀 ~  arguments`, arguments);
+    }(200) )
+
+  </script>
+
+
+</body>
+</html>

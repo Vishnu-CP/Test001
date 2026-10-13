@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>Template - HB</title>
+</head>
+<body>
+  <h1>Template - Handlebars</h1>
+
+  <button onclick="loadProfileByHB()">load profile</button>
+
+  <hr />
+
+  <main id="displayContainer">load content here.</main>
+
+  <template id="tmplDiv">
+    <h2>Profile</h2>
+    <div>
+      <img src="{{avatar}}" alt="Photo">
+      <div>
+        <h5>{{firstName}} {{lastName}}</h5>
+        <p>{{email}}</p>
+      </div>
+    </div>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+  <script>
+    var profileData = {
+      firstName: 'Janet',
+      lastName: 'Weaver',
+      email: 'janet.weaver@reqres.in',
+      avatar: 'https://i.pravatar.cc/150?img=5'
+    };
+
+    function loadProfileByHB () {
+      var tmplStr = document.getElementById('tmplDiv').innerHTML;
+      console.log('🚀 ~ tmplStr', tmplStr);
+
+      var hbTmplFx = Handlebars.compile(tmplStr);
+      console.log('🚀 ~ hbTmplFx', hbTmplFx);
+
+      var resultHtml = hbTmplFx(profileData);
+      console.log('🚀 ~ resultHtml', resultHtml);
+
+      document.getElementById('displayContainer').innerHTML = resultHtml;
+    }
+
+    loadProfileByHB();
+  </script>
+
+</body>
+</html>

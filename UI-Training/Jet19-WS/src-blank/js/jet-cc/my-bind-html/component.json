@@ -1,0 +1,12 @@
+{ "name": "my-bind-html",
+  "version": "1.0.0",
+  "displayName": "Simple HTML Text Renderer",
+  "description": "Simple HTML Text Renderer",
+  "jetVersion": ">=14.1.0",
+  "properties": {
+    "value": {
+      "description": "Simple HTML content to be rendered",
+      "type": "string"
+    }
+  }
+}

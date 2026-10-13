@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>Events</title>
+
+  <style>
+    .menu-item {
+      color: green;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Events</h1>
+
+  <button id="btnAddMenu" onclick="addMenuItem()">Add Menu</button>
+
+  <ul id="mainMenu">
+    <li class="menu-item">Menu Item 1</li>
+    <li class="menu-item">Menu Item 2</li>
+    <li class="menu-item">Menu Item 3</li>
+    <li class="menu-item">Menu Item 4</li>
+    <li class="menu-item">Menu Item 5</li>
+  </ul>
+
+  <hr />
+
+  <script>
+    var elMainMenu  = document.getElementById('mainMenu');
+    var elMenuItems = elMainMenu.getElementsByClassName('menu-item');
+
+    function addMenuItem () {
+      var newLi = document.createElement('li');
+      // var elMenuItems = elMainMenu.querySelectorAll('.menu-item');
+      newLi.textContent = 'Menu Item ' + (elMenuItems.length+1);
+      newLi.classList.add('menu-item');
+      // newLi.addEventListener('click', handleMenuItemClick);
+      elMainMenu.append(newLi);
+    }
+
+    function handleMenuItemClick (event) {
+
+      console.log(`🚀 ~  `, event, event.currentTarget, event.target);
+
+      var elTarget = event.target;
+      if (elTarget.matches('.menu-item')) {
+        console.log(`🚀 ~  your clicked`, elTarget.textContent);
+      }
+
+      if (elTarget.matches('button#btnAddMenu')) {
+        console.log(`🚀 ~  Add Button is clicked`);
+      }
+
+    }
+
+    // for(var menuItem of elMenuItems) {
+    //   menuItem.addEventListener('click', handleMenuItemClick);
+    // }
+
+    document.addEventListener('click', handleMenuItemClick);
+  </script>
+
+</body>
+</html>

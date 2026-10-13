@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>KO dark side</title>
+  <style>
+    body { font-family:monospace; margin:10px; font-size:x-large; }
+  </style>
+</head>
+<body>
+  <h1>KO dark side</h1>
+
+  <div data-bind="text:firstName"></div>
+  <div data-bind="text:lastName"></div>
+  <div data-bind="text:city"></div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script>
+  <script>
+
+    var firstName = 'win.james';
+    var lastName  = 'win.bond';
+    var city      = 'win.city';
+
+    var viewModel = {
+      firstName : 'james',
+      lastName  : 'bond',
+      // city      : 'city'
+    };
+
+    function ViewModel () {
+      this.firstName = 'f.Ethen';
+      this.lastName = 'f.Hunt';
+    }
+
+    //  ko.applyBindings(viewModel);
+    //  ko.applyBindings();
+    //  ko.applyBindings(new ViewModel());
+    // ko.applyBindings(new ViewModel);
+    ko.applyBindings(ViewModel());
+    // ko.applyBindings(ViewModel);
+
+    // with (viewModel)  {
+    //   ...
+    // }
+
+  </script>
+</body>
+</html>

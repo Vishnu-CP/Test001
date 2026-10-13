@@ -1,0 +1,35 @@
+<div id="card" class="card" style="width: 18rem">
+  <img  data-bind = "attr: {src:avatar}"  class="card-img-top" alt="avatar pic" />
+  <div class="card-body">
+    <h5 class="card-title"><span data-bind="text:firstName"> </span></h5>
+    <p class="card-text"><span data-bind="text:email"> </span></p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.1/knockout-latest.min.js"></script> -->
+<script>
+  console.log(`🚀 ~  profile.html loaded.`);
+  // https://api.restful-api.dev/objects/1
+  getData();
+
+  async function getData() {
+    try {
+      let profileUrl = "https://elevatecore.in/api/users/2";
+      var data = await fetch(profileUrl).then((res) => res.json());
+      console.log(data);
+
+    var profileData1 = {
+      firstName : ko.observable(data.firstName),
+      lastName  : ko.observable(data.lastName),
+      email     : ko.observable(data.email),
+      avatar    : ko.observable(data.avatar)
+    };
+
+    ko.applyBindings(profileData1,document.getElementById('card'))
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+</script>

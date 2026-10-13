@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>Closure</title>
+</head>
+<body>
+  <h1>Closure</h1>
+  <p>is a state of a function, which encloses/holds its surrounding(outer) states,
+     even after the outer function finished its execution.</p>
+
+  <script type="-">
+    function outer ( x ) {
+
+      var a = 2; // This variable is "private"
+
+      function inner ( y ) {
+        // closure for a and x
+        return (x + y) * a;
+      }
+
+      return inner;
+    }
+
+    var outResult = outer(10);
+    console.log('🚀 ~ outResult', outResult);
+
+  </script>
+
+  <script type="-">
+    function createCounter() {
+      let count = 0; // This variable is "private"
+
+      return {
+        current: function () {
+          return count;
+        },
+        next: function () {
+          count++;
+          return count;
+        }
+      };
+    }
+
+    var myCounter = createCounter();
+
+  </script>
+
+  <script>
+    // for (var i = 0; i < 3; i++) {
+    //   setTimeout(function(i) {
+    //     console.log(i);
+    //   }, 1000);
+    // }
+
+    // for (var i = 0; i < 3; i++) {
+    //   setTimeout(function(i) {
+    //     console.log(i);
+    //   }, 1000, i);
+    // }
+
+
+    // for (var i = 0; i < 3; i++) {
+    //   // We create a "Snapshot" function (IIFE)
+    //   (function(indexSnapshot) {
+    //     setTimeout(function() {
+    //       console.log(indexSnapshot);
+    //     }, 1000);
+    //   })(i); // We pass the current value of 'i' into the snapshot
+    // }
+
+    for (let i = 0; i < 3; i++) {
+      setTimeout(function() {
+        console.log(i);
+      }, 1000);
+    }
+
+  </script>
+
+
+</body>
+</html>

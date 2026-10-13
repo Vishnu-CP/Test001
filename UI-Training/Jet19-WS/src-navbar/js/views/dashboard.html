@@ -1,0 +1,40 @@
+<div class="oj-hybrid-padding">
+  <h1>Dashboard Content Area</h1>
+  <div>
+      To change the content of this section, you will make edits to the dashboard.html file located in the /js/views folder.
+  </div>
+
+  <div id="chart-container">
+    <oj-chart
+      id="barChart"
+      type="bar"
+      orientation="[[orientationValue]]"
+      stack="[[stackValue]]"
+      data="[[dataProvider]]"
+      animation-on-display="auto"
+      animation-on-data-change="auto"
+      hover-behavior="dim">
+      <template slot="itemTemplate" data-oj-as="item">
+        <oj-chart-item
+          value="[[item.data.value]]"
+          group-id="[[ [item.data.group] ]]"
+          series-id="[[item.data.series]]"></oj-chart-item>
+      </template>
+    </oj-chart>
+    <oj-toolbar id="myToolbar" aria-label="Chart Display Options Toolbar" aria-controls="barChart">
+      <!-- vertical/horizontal toggle button -->
+      <demo-chart-orientation-control
+        id="orientationControl"
+        type="bar"
+        focus-management="none"
+        orientation="{{orientationValue}}"></demo-chart-orientation-control>
+      <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
+      <!-- unstacked/stacked toggle button -->
+      <demo-chart-stack-control
+        id="stackControl"
+        type="bar"
+        focus-management="none"
+        stack="{{stackValue}}"></demo-chart-stack-control>
+    </oj-toolbar>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+{
+  "name": "jet-dev",
+  "version": "1.0.0",
+  "description": "An Oracle JavaScript Extension Toolkit(JET) web app",
+  "scripts": {
+    "0": "yarn blank",
+    "serv-dev": "ojet serve web --server-port=9001 --livereload-port=39001",
+    "serv-rel": "ojet serve web --server-port=9001 --livereload-port=39001 --release",
+    "build-dev": "ojet build web",
+    "build-rel": "ojet build web --release",
+    "serv": "yarn serv-dev",
+    "start": "yarn serv-dev",
+    "switch": "node switch.js",
+    "basic": "yarn switch basic && yarn start",
+    "blank": "yarn switch blank && yarn start",
+    "navbar": "yarn switch navbar && yarn start",
+    "navdrawer": "yarn switch navdrawer && yarn start",
+    "navdrawerK": "yarn switch navdrawerK && yarn start",
+    "b": "yarn basic",
+    "nb": "yarn navbar",
+    "nd": "yarn navdrawer",
+    "ndk": "yarn navdrawerK"
+  },
+  "dependencies": {
+    "@oracle/oraclejet": "~20.0.0",
+    "@oracle/oraclejet-core-pack": "~20.0.0",
+    "ojx": "^1.1.0"
+  },
+  "devDependencies": {
+    "@oracle/ojet-cli": "~20.0.0",
+    "extract-zip": "^1.7.0",
+    "fs-extra": "^8.1.0",
+    "glob": "10.4.5",
+    "underscore": "^1.10.2"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "private": true,
+  "overrides": {
+    "@types/minimatch": "5.1.2"
+  }
+}

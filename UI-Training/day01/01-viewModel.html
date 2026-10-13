@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>View Model - In-depth</title>
+  <style>
+    body {
+      font-family: monospace;
+      margin: 10px;
+      font-size: x-large;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>View Model - In-depth</h1>
+
+  <script type="-">
+    // Plain Object
+    var pObjA1 = {
+      firstName: 'Donald',
+      lastName: 'Duck',
+      sayHi: function () {
+        console.log('🚀 ~ Hi', this.firstName);
+      }
+    };
+
+    var pObjA2 = {
+      firstName: 'Micky',
+      lastName: 'Mouse',
+      sayHi: function () {
+        console.log('🚀 ~ Hi', this.firstName);
+      }
+    };
+
+    function sayHi() {
+      console.log('🚀 ~ Hi', this.firstName);
+    }
+
+    var pObjB1 = {
+      firstName: 'James',
+      lastName: 'Bond',
+      sayHi
+    };
+
+    var pObjB2 = {
+      firstName: 'Ethen',
+      lastName: 'Hunt',
+      sayHi
+    };
+  </script>
+
+  <script type="-">
+    // Create Object using function
+    function createActorM0(firstName = 'M0', lastName = 'Actor') {
+
+      function sayHello() {
+        console.log(`🚀 ~  Hello`, this.firstName);
+      }
+
+      return {
+        firstName,
+        lastName,
+        sayHello
+      };
+    }
+  </script>
+
+  <script type="-">
+    // common methods
+    function sayHello() {
+      console.log(`🚀 ~  Hello`, this.firstName);
+    }
+
+    function createActorM1(firstName = 'M1', lastName = 'Actor') {
+      return {
+        firstName,
+        lastName,
+        sayHello
+      };
+    }
+
+    function createActorM2(firstName = 'M2', lastName = 'Actor') {
+      var newActor = {
+        firstName,
+        lastName,
+        sayHello
+      };
+
+      return newActor;
+    }
+
+    function createActorM3(firstName = 'M3', lastName = 'Actor') {
+      var newActor = {};
+
+      newActor.firstName = firstName;
+      newActor.lastName = lastName;
+      newActor.sayHello = sayHello
+
+      return newActor;
+    }
+
+    function createActorM4(firstName = 'M4', lastName = 'Actor') {
+      var self = {}
+
+      self.firstName = firstName;
+      self.lastName = lastName;
+      self.sayHello = sayHello
+
+      return self;
+    }
+  </script>
+
+  <script type="-">
+    // create object with this and new
+
+    // common methods
+    function sayHello() {
+      console.log(`🚀 ~  Hello`, this.firstName);
+    }
+
+    function createActorT1(firstName = 'T1', lastName = 'Actor') {
+      var self = this; //this will be {} when the function invoked with new operator
+
+      self.firstName = firstName;
+      self.lastName = lastName;
+      self.sayHello = sayHello;
+
+      return self;
+    }
+    var actorX1 = new createActorT1();
+    var actorX2 = createActorT1();
+    console.log('🚀 ~ actorX1', actorX1);
+    console.log('🚀 ~ actorX2', actorX2);
+
+    function createActorT2(firstName = 'T2', lastName = 'Actor') {
+
+      console.log(`🚀 ~  invoked createActorT2 with${new.target? '' : 'out'} new`);
+      if (!new.target) return new createActorT2(firstName, lastName);
+
+      this.firstName = firstName;
+      this.lastName = lastName;
+    }
+    createActorT2.prototype.sayHello = sayHello;
+
+    var actorY1 = new createActorT2();
+    var actorY2 = createActorT2();
+    console.log('🚀 ~ actorY1', actorY1);
+    console.log('🚀 ~ actorY2', actorY2);
+
+  </script>
+
+  <script type="-">
+    class Actor {
+      constructor(firstName = 'C1', lastName = 'Actor') {
+        this.firstName = firstName;
+        this.lastName = lastName;
+      }
+
+      sayHello(name) {
+        console.log(`🚀 ~  Hello`, name);
+      }
+    }
+
+    var actorZ1 = new Actor();
+    var actorZ2 = Actor();
+  </script>
+
+  <script>
+    var country = 'UK';
+
+    function doSomething () {
+
+      var city = 'London';
+
+      var agent = {
+        firstName: 'James',
+        lastName: 'Bond'
+      };
+
+      with (agent) {
+        console.log('🚀 ~ firstName', firstName);
+        console.log('🚀 ~ lastName', lastName);
+        console.log('🚀 ~ city', city);
+        console.log('🚀 ~ country', country);
+        // console.log('🚀 ~ zip', zip);
+      }
+    }
+    doSomething();
+
+    i= 10;
+    console.log(i);  </script>
+
+
+</body>
+
+</html>

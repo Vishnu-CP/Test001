@@ -1,0 +1,20 @@
+<div class="oj-hybrid-padding">
+  <h1>About <oj-bind-text value="[[ firstName() + ' ' + lastName() ]]"></oj-bind-text></h1>
+  <div>
+      To change the content of this section, you will make edits to the about.html file located in the /js/views folder.
+  </div>
+
+  <p></p>
+
+  <div>
+    <oj-c-avatar
+      initials="[[initials]]"
+      src="[[avatar]]"
+      :aria-label="[[firstName() + ' ' + lastName() + '. Image. Size: 2xl.']]"
+      :title="[[firstName() + ' ' + lastName() + '. Image. Size: 2xl.']]"
+      shape="[[shape]]"
+      size="2xl"></oj-c-avatar>
+
+      <!-- shape=suuare|circle -->
+  </div>
+</div>

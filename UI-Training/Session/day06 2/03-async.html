@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>async</title>
+</head>
+<body>
+  <h1>Async</h1>
+
+  <script>
+    console.log(`🚀 ~  inside block - A`);
+
+    console.log(`🚀 ~  doing something A1`);
+
+    setTimeout(function () {
+
+      console.log(`🚀 ~  doing something A2`);
+
+    }, 2000);
+
+    console.log(`🚀 ~  doing something A3`);
+
+
+    setTimeout(() => {
+
+      console.log(`🚀 ~  doing something A4`);
+    }, 0);
+
+    console.log(`🚀 ~  doing something A5`);
+
+  </script>
+
+  <script>
+
+    console.log(`🚀 ~  inside Block B`);
+
+
+    //for loop busy for 3min...
+    console.log(`🚀 ~  doing something B1`);
+
+    console.log(`🚀 ~  doing something B2`);
+    console.log(`🚀 ~  doing something B3`);
+    console.log(`🚀 ~  doing something B4`);
+
+  </script>
+
+
+</body>
+</html>

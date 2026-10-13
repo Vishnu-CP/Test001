@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>JET - Blank</title>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="viewport-fit=cover, initial-scale=1.0"/>
+    <link rel="icon" type="image/x-icon" href="css/images/JET-Favicon-Red-32x32.png">
+    <link rel="apple-touch-icon-precomposed" href="css/images/touchicon.png">
+    <meta name="apple-mobile-web-app-title" content="Oracle JET">
+
+		<!-- injector:theme -->
+		<!-- endinjector -->
+
+    <style>
+      body {
+        margin: 10px;
+        padding: 10px;
+      }
+      details {
+        margin-bottom: 20px;
+      }
+      details>summary:hover {
+        cursor: pointer;
+        font-weight: bold;
+      }
+      details[open]>summary {
+        font-weight: bold;
+      }
+
+      .fixed-bottom {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <h1>Two Way Binding</h1>
+
+    <form>
+      <h2>
+        <oj-bind-text value="[[firstName]]"></oj-bind-text>
+      </h2>
+
+      <strong>oj-input-text</strong>
+      <oj-input-text id="firstName" label-hint="First Name" required="true"
+        value="{{ firstName }}">
+      </oj-input-text>
+
+      <p></p>
+
+      <strong>oj-c-input-text</strong>
+      <oj-c-input-text value="{{firstName}}" label-hint="First Name">
+      </oj-c-input-text>
+    </form>
+
+    
+
+
+    <!-- This injects script tags for the main javascript files -->
+		<!-- injector:scripts -->
+		<!-- endinjector -->
+  </body>
+</html>

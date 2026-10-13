@@ -1,0 +1,101 @@
+<div class="oj-hybrid-padding">
+  <h1>Customers</h1>
+  <div>
+      To change the content of this section, you will make edits to the customers.html file located in the /js/views folder.
+  </div>
+
+  <oj-toolbar chroming="outlined">
+    <oj-button on-oj-action="[[transitionCompleted]]" id="refresh" display="icons">
+      <span slot="startIcon" class="oj-ux-ico-refresh"></span>
+      Refresh
+    </oj-button>
+    <oj-button on-oj-action="[[handleUpdatePop]]" id="updateButton" disabled="[[!isRowSelected()]]" chroming="callToAction">
+      Update Pop
+    </oj-button>
+    <oj-button on-oj-action="[[handleUpdateSlide]]" id="updateButton2" disabled="[[!isRowSelected()]]" chroming="callToAction">
+      Update Slide
+    </oj-button>
+    <oj-button on-oj-action="[[handleRemove]]" id="removeButton" disabled="[[!isRowSelected()]]" chroming="danger">
+      Remove
+    </oj-button>
+  </oj-toolbar>
+
+  <oj-bind-if test="[[ isLoading() ]]">
+    <div style="text-align: center;">
+      <oj-c-progress-circle aria-labelledby="lgLabel indetLabel" size="lg" value="-1"></oj-c-progress-circle>
+    </div>
+  </oj-bind-if>
+
+  <oj-bind-if test="[[ !(isLoading()) ]]">
+    <oj-table
+      id="custTable"
+      data="[[custDataProvider]]"
+      columns='[[custColumns]]'
+      first-selected-row="{{selectedRow}}"
+
+      aria-label="Customers Table"
+      selection-mode='{"row": "single", "column": "none"}'
+      dnd='{"reorder": {"columns": "enabled"}}'
+      scroll-policy="loadMoreOnScroll"
+      scroll-policy-options='{"fetchSize": 10}'
+      class="demo-table-container"
+      style="width:100%;height:calc(100vh - 400px);"
+      >
+      <template slot="tmplAvatar" data-oj-as="cell">
+        <oj-c-avatar
+          initials="[[cell.row.firstName[0]+cell.row.lastName[0]]]"
+          src="[[cell.data]]"
+          :aria-label="[[cell.row.firstName + ' ' + cell.row.lastName]]"
+          :title="[[cell.row.firstName + ' ' + cell.row.lastName]]"
+          size="xs"
+          shape="circle">
+        </oj-c-avatar>
+      </template>
+    </oj-table>
+
+  </oj-bind-if>
+
+  <oj-dialog id="msgDialog" dialog-title="Alert" aria-describedby="desc">
+    <div slot="body">
+      <oj-bind-text value="[[dlgMessage()]]"></oj-bind-text>
+    </div>
+    <div slot="footer">
+      <oj-button id="okButton" on-oj-action="[[closeMsgDlg]]">OK</oj-button>
+    </div>
+  </oj-dialog>
+
+  <oj-dialog id="confirmDialog" dialog-title="Confirm" aria-describedby="desc">
+    <div slot="body">
+      <oj-bind-text value="[[confirmMessage()]]"></oj-bind-text>
+    </div>
+    <div slot="footer">
+      <oj-button id="okButton" on-oj-action="[[onConfirm]]" chroming="danger">Yes, Remove</oj-button>
+      <oj-button id="okButton" on-oj-action="[[closeConfirm]]">No, Cancel</oj-button>
+    </div>
+  </oj-dialog>
+
+  <oj-popup id="editPopup"
+    position.of="window"
+    tail="none"
+    style="height:100vh; max-height:100vh; width:500px"
+    position.at.horizontal="center" position.at.vertical="center"
+    position.my.horizontal="center" position.my.vertical="center"
+    position.collision="none" modality="modal"
+    auto-dismiss="none">
+    <div class="oj-sm-padding-4x">
+      <oj-module config="[[editCustConfig]]"></oj-module>
+    </div>
+  </oj-popup>
+
+  <!-- for modeless set modality="modeless" -->
+  <oj-c-drawer-popup edge="end"
+    auto-dismiss="none"
+    modality="modal"
+    opened="{{slideOutOpened}}"
+    aria-labelledby="endHeader">
+    <div class="oj-sm-padding-4x">
+      <ojx-module path="[[editPanelUi]]" data="[[editPanelData]]" render="[[renderEditPanel]]"></ojx-module>
+    </div>
+  </oj-c-drawer-popup>
+
+</div>

@@ -1,0 +1,7 @@
+/* styles for this component */
+my-bind-html:not(.oj-complete) {
+  visibility: hidden;
+}
+my-bind-html {
+  display: inline;
+}

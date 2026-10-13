@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>ESM</title>
+</head>
+<body>
+  <h1>ESM</h1>
+
+  <script src="https://cdn.jsdelivr.net/npm/requirejs@latest/require.min.js"></script>
+  <script type="module">
+    var myName = 'Javascript';
+
+    // to import... export default
+    // import sLib from './modules/sumLib.js';
+    import api from './modules/apiLib.js';
+
+    // to import... named export
+    // import {get, post} from './modules/apiLib.js';
+
+    import api, {get, post} from './modules/apiLib.js';
+
+    import * as apiLib from './modules/apiLib.js';
+
+    console.log('🚀 ~ apiLib', apiLib);
+
+
+    // console.log('🚀 ~ post', post);
+    // post();
+
+    // console.log('🚀 ~ get', get);
+    // get();
+
+
+    // // console.log('🚀 ~ sLib', sLib);
+    // console.log('🚀 ~ api', api);
+
+  </script>
+
+</body>
+</html>

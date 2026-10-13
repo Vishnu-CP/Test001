@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/x-icon;base64," />
+  <title>Promise</title>
+</head>
+<body>
+  <h1>Promise</h1>
+
+  <script type="-">
+
+    // inspiration
+
+    // $.ajax()
+    //   .then()
+    //   .fail()
+    //   .always();
+
+    if (doSoemthing(input)) {
+      handleThen()
+    } else {
+      handleFail()
+    }
+
+    doSomething(input)
+      .then(handleThen)
+      .fail(handleFail)
+
+    doSomething(input)
+      .then(handleThen)
+      .catch(handleFail)
+
+  </script>
+
+  <script type="-">
+    function doSomething (input) {
+
+      if (input) {
+        // return toThen
+        return Promise.resolve( 'Success' )
+      } else {
+        // return toCatch
+        return Promise.reject( 'failed' )
+      }
+    }
+
+    function handleThen1 ( data ) {
+      console.log(`🚀 ~  then-1 data`, data);
+      // return data + ' modified ';
+      return Promise.reject('something went wrong');
+      // throw new Error('something gone wrong!')
+    }
+    function handleThen2 ( data ) {
+      console.log(`🚀 ~  then-2 data`, data);
+    }
+    function handleFail1 ( data ) {
+      console.log('🚀 ~ fail-1 data', data);
+    }
+
+    doSomething(true)
+      .then(handleThen1)
+      .then(handleThen2)
+      .catch(handleFail1);
+
+    doSomething(false)
+      .then(handleThen1)
+      .then(handleThen2)
+      .catch(handleFail1);
+
+  </script>
+
+  <script>
+
+    function initPromise ( res, rej ) {
+      console.log(`🚀 ~  working on getting the fund...`);
+
+      setTimeout(() => {
+
+        fetch('https://elevatecore.in/api/fund').then(r=>r.json())
+          .then(fund=>{
+
+            if (fund.amount > 100) {
+              res(fund.amount);
+            } else {
+              rej(`Sorry! I don't have it`);
+            }
+          })
+          .catch(e=>{
+            rej(`Sorry! I can't reach my bank!`);
+          });
+
+      });
+
+      console.log(`🚀 ~  Promise receved/accpeted/initialized`);
+    }
+
+    var promise1 = new Promise( initPromise );
+    promise1
+      .then(handleFund)
+      .then(handleFund2)
+      .catch(handleFail);
+
+    function handleFund ( data ) {
+      console.log('🚀 ~ data', data);
+
+    }
+    function handleFund2 ( data ) {
+      console.log('🚀 ~ then2 data', data);
+    }
+    function handleFail ( data ) {
+      console.log('🚀 ~ data', data);
+    }
+
+  </script>
+</body>
+</html>
